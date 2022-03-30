@@ -1,6 +1,11 @@
 package xyz.holomek.utils;
 
 import java.io.*;
+import java.nio.Buffer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 
 public class UtilFiles {
 
@@ -24,6 +29,37 @@ public class UtilFiles {
             in.close();
             out.close();
         }
+    }
+
+    public static void appendToFile(File file, String text) throws IOException {
+
+        if (!file.exists())
+           file.createNewFile();
+
+        Files.write(Paths.get(file.getAbsolutePath()), text.getBytes(), StandardOpenOption.APPEND);
+    }
+
+    public static void appendToFile(String filePath, String text) throws IOException {
+        appendToFile(new File(filePath), text);
+    }
+
+    public static ArrayList<String> readFromFile(String filePath) {
+        ArrayList<String> lines = new ArrayList<>();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
+            String row = null;
+
+            while ((row = bufferedReader.readLine()) != null) {
+                lines.add(row);
+            }
+
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return lines;
     }
 
 }

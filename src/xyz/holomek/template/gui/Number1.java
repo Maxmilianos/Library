@@ -2,6 +2,7 @@ package xyz.holomek.template.gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 
 public class Number1 {
 
@@ -17,12 +18,26 @@ public class Number1 {
     public void initializace() {
         frame = new JFrame();
         frame.setTitle("Number 1 style");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         frame.setBounds(screenSize.width / 2 - sizeX / 2, screenSize.height / 2 - sizeY / 2, sizeX, sizeY);
         frame.getContentPane().setLayout(null);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        /*
+        KOD pokud to bude file
+         */
+        JFileChooser fileChooser = new JFileChooser(".");
+        int result = fileChooser.showOpenDialog(frame);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+        }
+
+        /*
+        KONEC KODU
+         */
+
         frame.setVisible(true);
     }
 
