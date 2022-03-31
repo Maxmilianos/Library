@@ -151,6 +151,9 @@ public class Prevod {
                         xs += 1;
                     }
                 }
+                if (xs > 9) {
+                    return "Spatny kod - '" + s + "'";
+                }
                 ret += xs;
             }
             //System.out.println("mezer: " + mez);

@@ -3,6 +3,7 @@ package xyz.holomek;
 import xyz.holomek.template.gui.Number1;
 import xyz.holomek.ulohy.pexeso.Pexeso;
 import xyz.holomek.ulohy.prevodCifer.Prevod;
+import xyz.holomek.ulohy.prvocisla.PrvoCisla;
 import xyz.holomek.utils.UtilFiles;
 
 import java.io.IOException;
@@ -13,7 +14,7 @@ public class Test {
     public static void main(String[] args) {
 
         /*
-
+        MELO BY BYT VSE
         Uloha 1 - převod cifer
 
         Prevod prevod = new Prevod(); // vyuzivame u vsech trech metod, NUTNE
@@ -31,12 +32,21 @@ public class Test {
         */
 
         /*
-
+        MELO BY BYT VSE
         Uloha cislo 2 - pexeso
 
         Pexeso pexeso = new Pexeso();
         pexeso.initializace();
         */
+
+        /*
+        NENI MOC
+        Uloha cislo 3 - prvocisla
+        */
+        PrvoCisla prvoCisla = new PrvoCisla();
+        prvoCisla.start();
+
+
     }
 
 }
