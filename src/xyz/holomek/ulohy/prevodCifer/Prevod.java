@@ -1,6 +1,7 @@
 package xyz.holomek.ulohy.prevodCifer;
 
 import xyz.holomek.utils.UtilFiles;
+import xyz.holomek.utils.UtilMath;
 
 import javax.swing.*;
 import java.io.*;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 public class Prevod {
 
     // metoda na volani pres main, psani primo kodu
-    public void startFromConsole() throws IOException {
+    public void startFromConsoleDe() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         String row = null;
@@ -19,8 +20,27 @@ public class Prevod {
             System.out.println(de(row));
         }
     }
+    // metoda na volani pres main, psani primo cisla
+    public void startFromConsoleSe() throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-    // metoda na volani pres main, pouze pro vyber filu
+        String row = null;
+        System.out.println("Napiste cislo ktere chcete sifrovat:");
+        while ((row = bufferedReader.readLine()) != null) {
+            if (UtilMath.isInteger(row)) {
+                int number = Integer.parseInt(row);
+                if (number > 0) {
+                    System.out.println(se(number));
+                } else {
+                    System.out.println("Spatne cislo.");
+                }
+            } else {
+                System.out.println("Spatne cislo.");
+            }
+        }
+    }
+
+    // metoda na volani pres main, pouze pro vyber souboru
     public void startFromFile() {
 
         /*
@@ -81,6 +101,24 @@ public class Prevod {
             e.printStackTrace();
         }
 
+    }
+
+    private String se(int number) {
+        String ret = "";
+        String s = "" + number;
+        for (int i = 0; i < s.length(); i++) {
+            String numb = "" + s.charAt(i);
+            int n = Integer.parseInt(numb);
+            if (n == 0) {
+                ret += " ";
+            } else {
+                for (int c = 0; c < n; c++) {
+                    ret += "x";
+                }
+            }
+            ret += " ";
+        }
+        return ret;
     }
 
     //neumi to jeste ty nuly na konci, potom to dodelaj

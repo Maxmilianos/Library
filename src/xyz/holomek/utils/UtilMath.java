@@ -61,7 +61,7 @@ public class UtilMath {
     }
 
     public static int random(int min, int max) {
-        return max + random.nextInt(max - min);
+        return min + random.nextInt(max - min);
     }
 
     public static int random(int max) {
