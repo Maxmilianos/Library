@@ -4,11 +4,23 @@ import xyz.holomek.utils.UtilFiles;
 
 import javax.swing.*;
 import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
 
 public class Prevod {
 
-    // zakladni metoda na volani pres main
+    // metoda na volani pres main, psani primo kodu
+    public void startFromConsole() throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        String row = null;
+        System.out.println("Napiste kod ktery chcete rozlustit:");
+        while ((row = bufferedReader.readLine()) != null) {
+            System.out.println(de(row));
+        }
+    }
+
+    // metoda na volani pres main, pouze pro vyber filu
     public void startFromFile() {
 
         /*
@@ -16,7 +28,7 @@ public class Prevod {
         System.out.println("Number 35211: " + de("xxx xxxxx xx x x")); //cislo 35211
         */
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        /*BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         String row = null;
         /*System.out.println("Moznosti (napiste cislo):");
@@ -46,8 +58,27 @@ public class Prevod {
 
         ArrayList<String> lines = UtilFiles.readFromFile(selectedFile);
         System.out.println("Prvnich pet:");
-        for (String line : ((ArrayList<String>) lines.clone())) {
+        for (String line : ((ArrayList<String>) lines.clone()).subList(0,5)) {
             System.out.println(de(line));
+        }
+        System.out.println("");
+        System.out.println("");
+        System.out.println("Nekoncici nulou:");
+        for (String line : ((ArrayList<String>) lines.clone())) {
+            if (!line.endsWith(" "))
+                System.out.println(de(line));
+        }
+
+        ArrayList<String> vysledkyDes = new ArrayList<String>();
+
+        for (String line : ((ArrayList<String>) lines.clone())) {
+            vysledkyDes.add(de(line));
+        }
+
+        try {
+            UtilFiles.appendToFile("./src/vysledky-sifer.txt", String.join("\n", vysledkyDes));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
@@ -65,6 +96,14 @@ public class Prevod {
             if (!spl.contains("x")) {
                 mez += 1;
             } else {
+                mez = 0;
+                /*
+                Nejak tak to udelaj
+                System.out.println("Mezery" + mez);
+                if (mez == 2) {
+                    // xx  xxx xx
+                    System.out.println("Spatny kod");
+                }*/
                 int xs = 0;
                 for (int i = 0; i < spl.length(); i++) {
                     String act = "" + spl.charAt(i);
