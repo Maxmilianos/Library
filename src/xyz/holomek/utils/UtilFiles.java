@@ -43,6 +43,11 @@ public class UtilFiles {
         appendToFile(new File(filePath), text);
     }
 
+    public static ArrayList<String> readFromFile(File file) {
+        return readFromFile(file.getAbsolutePath());
+    }
+
+
     public static ArrayList<String> readFromFile(String filePath) {
         ArrayList<String> lines = new ArrayList<>();
         try {
