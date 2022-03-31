@@ -6,4 +6,31 @@ Kod nemuze zacinat mezerou. - ' xxx xxxx xxx'
 6005604
 99903
 1004007
+2324
+6
+201005003
+Kod nemuze zacinat mezerou. - ' xxx xxxx xxx'
+330303
+6005604
+99903
+1004007
+2324
+2888
+6
+1111
+54
+4050403
+201005003
+21150005
+Kod nemuze zacinat mezerou. - ' xxx xxxx xxx'
+444
+330303
+1043
+6005604
+Spatny kod - 'xxxxx xxxxxxxxxx xxxxxx'
+99903
+445
+1004007
 2
+1
+32

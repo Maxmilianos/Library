@@ -40,7 +40,7 @@ public class Test {
         */
 
         /*
-        NENI MOC
+        NENI VUBEC
         Uloha cislo 3 - prvocisla
         */
         PrvoCisla prvoCisla = new PrvoCisla();
