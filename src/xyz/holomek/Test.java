@@ -34,17 +34,19 @@ public class Test {
         /*
         MELO BY BYT VSE
         Uloha cislo 2 - pexeso
-
+        */
         Pexeso pexeso = new Pexeso();
         pexeso.initializace();
-        */
+
 
         /*
         NENI VUBEC
         Uloha cislo 3 - prvocisla
-        */
+        *
         PrvoCisla prvoCisla = new PrvoCisla();
         prvoCisla.start();
+
+        */
 
 
     }
